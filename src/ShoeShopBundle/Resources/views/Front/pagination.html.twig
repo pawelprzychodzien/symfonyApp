@@ -1,0 +1,15 @@
+{% if pageCount > 1 %}
+    <ul class="pager">
+        {% if previous is defined %}
+            <li class="prev">
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&lt; Wczesniejsze produkty</a>
+            </li>
+        {% endif %}
+
+        {% if next is defined %}
+            <li class="next">
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}"> Starsze produkty &gt;</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

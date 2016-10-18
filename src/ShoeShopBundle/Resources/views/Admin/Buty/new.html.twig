@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="adm-new">
+    <h2>Dodaj nowy produkt</h2>
+
+    {{ form_start(form) }}
+    <div>
+        {{ form_errors(form.marka) }}
+        <div>
+            <div>
+                {{ form_label(form.marka) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.marka) }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ form_errors(form.model) }}
+        <div>
+            <div>
+                {{ form_label(form.model) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.model) }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ form_errors(form.kolor) }}
+        <div>
+            <div>
+                {{ form_label(form.kolor) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.kolor) }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ form_errors(form.cena) }}
+        <div>
+            <div>
+                {{ form_label(form.cena) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.cena) }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ form_errors(form.rozmiar) }}
+        <div>
+            <div>
+                {{ form_label(form.rozmiar) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.rozmiar) }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ form_errors(form.zdjecieMIN) }}
+        <div>
+            <div>
+                {{ form_label(form.zdjecieMIN) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.zdjecieMIN) }}
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ form_errors(form.zdjecie) }}
+        <div>
+            <div>
+                {{ form_label(form.zdjecie) }}:
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {{ form_widget(form.zdjecie) }}
+            </div>
+        </div>
+    </div>
+        <div><input type="submit" value="Dodaj" /></div>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('app_admin_buty_index') }}">Powrot do listy produktow</a>
+        </li>
+    </ul>
+    </div>
+{% endblock %}

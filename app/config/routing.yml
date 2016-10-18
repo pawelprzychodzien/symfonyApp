@@ -1,0 +1,12 @@
+app_admin:
+  resource: "@ShoeShopBundle/Controller/Admin/"
+  type: "annotation"
+  prefix: "/admin"
+
+app_front:
+  resource: "@ShoeShopBundle/Controller/Front/"
+  type: "annotation"
+  prefix: "/"
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

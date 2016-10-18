@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+    <div class="produkty col-md-12">
+        <img src="{{ asset('uploads/img/' ~ buty.zdjecie) }}">
+        <h2 class="buty-marka">
+            {{ buty.marka }}
+        </h2>
+        <h3 class="buty-model">
+            {{ buty.model }}
+        </h3>
+        <h4 class="buty-kolor">
+            {{ buty.kolor }}
+        </h4>
+        <h5 class="buty-cena">
+            cena: {{ buty.cena }} zl
+        </h5>
+
+    {% if buty.rozmiar is not empty %}
+
+            <h6 class="buty-rozmiar">Dostepne rozmiary:
+            {#{% for tag in post.tags %}#}
+            {#{{ tag }},#}
+            {#{% endfor %}#}
+
+            {{ buty.rozmiar | join(', ')   }}</h6>
+        </div>
+        {% else %} Brak dostepnych rozmiarow
+    {% endif %}
+    <a href="{{ url('app_front_default_index') }}">Powrot do listy produktow</a>
+
+{% endblock %}

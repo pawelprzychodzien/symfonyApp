@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="adm-index">
+    {% if shoes %}
+    <h2>Lista produktów</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Kolor</th>
+                <th>Cena</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for buty in shoes %}
+            <tr>
+                <td><a href="{{ path('app_admin_buty_show', { 'id': buty.id }) }}">{{ buty.id }}</a></td>
+                <td><img src="{{ asset('uploads/img/' ~ buty.zdjecieMIN) }}"></td>
+                <td>{{ buty.marka }}</td>
+                <td>{{ buty.model }}</td>
+                <td>{{ buty.kolor }}</td>
+                <td>{{ buty.cena }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('app_admin_buty_show', { 'id': buty.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_admin_buty_edit', { 'id': buty.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty">Brak produktow w bazie</div>
+{% endif %}
+
+    <ul class="add-product">
+        <li>
+            <a href="{{ path('app_admin_buty_new') }}">Dodaj nowy produkt</a>
+        </li>
+    </ul>
+    </div>
+{% endblock %}
