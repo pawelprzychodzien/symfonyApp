@@ -1,2 +1,2 @@
-Prosty projekt CRUD z wykorzystaniem framework'u Symfony w wersji 2.8, maj¹cy na celu zaprezentowanie posiadnych umiejêtnoœci programowania
+Prosty projekt CRUD z wykorzystaniem framework'u Symfony w wersji 2.8, maj¹cy na celu zaprezentowanie posiadnych umiejêtnoœci programowania.
 Nacisk po³o¿ono g³ównie na warstwê back-end, warstwa frontowa wymaga dopracowania.
