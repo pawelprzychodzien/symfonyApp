@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Buty<h1>
-
     <table>
         <tbody>
             <tr>
@@ -33,7 +31,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('app_admin_buty_index') }}">Powrót do listy produktów</a>
+            <a href="{{ path('app_admin_buty_index') }}">Powrot do listy produktow</a>
         </li>
         <li>
             <a href="{{ path('app_admin_buty_edit', { 'id': buty.id }) }}">Edycja produktu</a>

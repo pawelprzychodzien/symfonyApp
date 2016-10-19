@@ -54,8 +54,10 @@ class ButyController extends Controller
             );
             $buty->setZdjecie($fileName);
 
+            $ext_pos = strrpos($fileName, '.');
+
             $file2 = $buty->getZdjecieMIN();
-            $fileName2 = md5(uniqid()).'.'.$file->guessExtension();
+            $fileName2 = substr($fileName, 0, $ext_pos) . '_min' . substr($fileName, $ext_pos);;
             $file2->move(
                 $this->getParameter('img_directory'),
                 $fileName2
