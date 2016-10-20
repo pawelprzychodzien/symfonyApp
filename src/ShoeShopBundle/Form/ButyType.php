@@ -23,42 +23,46 @@ class ButyType extends AbstractType
     {
         $builder
             ->add('marka', ChoiceType::class, array(
+                'data_class' => 'ShoeShopBundle\Entity\Buty',
                 'choices' => ['Adidas', 'Asics', 'Nike', 'Puma'
                 ]
             ))
-            ->add('model', TextareaType::class)
-            ->add('kolor', TextareaType::class)
-            ->add('cena', TextareaType::class)
+            ->add('model', TextareaType::class, array(
+                'data_class' => 'ShoeShopBundle\Entity\Buty',
+            ))
+            ->add('kolor', TextareaType::class, array(
+                'data_class' => 'ShoeShopBundle\Entity\Buty',
+            ))
+            ->add('cena', TextareaType::class, array(
+                'data_class' => 'ShoeShopBundle\Entity\Buty',
+            ))
             ->add('rozmiar', EntityType::class, array(
-                'class' => 'ShoeShopBundle:Rozmiar',
-                'expanded' => true,
-                'multiple' => true,
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('r')
-                        ->orderBy('r.rozmiar', 'ASC');
-                }, 'choice_label' => 'rozmiar',
+                    'class' => 'ShoeShopBundle:Rozmiar',
+                    'expanded' => true,
+                    'multiple' => true,
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('r')
+                            ->orderBy('r.rozmiar', 'ASC');
+                    }, 'choice_label' => 'rozmiar',
                 )
             )
-            ->add('zdjecie', FileType::class, array('label' => 'Zdjecie (img file)'))
-            ->add('zdjecieMIN', FileType::class, array('label' => 'Zdjecie miniatura (img file)'))
-
-        ;
+            ->add('zdjecie', FileType::class, array(
+                'data_class'=> null,
+                'property_path' => 'zdjecie',
+                'label' => 'Zdjecie (img file)'))
+            ->add('zdjecieMIN', FileType::class, array(
+                'data_class'=> null,
+                'property_path' => 'zdjecieMIN',
+                'label' => 'Zdjecie miniatura (img file)'));
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ShoeShopBundle\Entity\Buty'
+            'data_class' => null
         ));
     }
-
-    /*public function getRozmiarChoices()
-    {
-        $em=$this->getDoctrine()->getManager();
-        $rozmiary = $em->getRepository('ShoeShopBundle:Rozmiar')->findAll();
-        return $rozmiary;
-    }*/
 }

@@ -8,3 +8,7 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
+    sklep.listener:
+        class: ShoeShopBundle\EventListener\ButyModification
+        tags:
+            - { name: doctrine.event_listener, event: butyLoad }
