@@ -2,7 +2,26 @@
 
 
 {% block body %}
-    <div class="produkty col-md-12">
+    <div class="adm-show">
+        <img src="{{ asset('uploads/img/' ~ buty.zdjecie) }}">
+        <div class="shoe-data">
+            <div class="adm-show-cena">{{ buty.cena }} zl</div>
+            <hr>
+            <div class="adm-show-marka">{{ buty.marka }}</div>
+            <div class="adm-show-model">{{ buty.model }}</div>
+            <hr>
+            <div class="adm-show-kolor">Kolor: {{ buty.kolor }}</div>
+            <hr>
+            {% if buty.rozmiar is not empty %}
+            <div class="adm-show-rozmiar"><p>Dostepne rozmiary:</p><p>{{ buty.rozmiar | join(', ') }}</p></div>
+            {% else %} <div class="adm-show-rozmiar"><p>Brak dostepnych rozmiarow</p></div>
+            {% endif %}
+            <hr>
+            <div class="action">
+                <p><a href="{{ path('app_admin_buty_index') }}">Powrot do listy produktow</a></p>
+        </div>
+    </div>
+    <!--<div class="produkty col-md-12">
         <img src="{{ asset('uploads/img/' ~ buty.zdjecie) }}">
         <h2 class="buty-marka">
             {{ buty.marka }}
@@ -28,6 +47,6 @@
         </div>
         {% else %} Brak dostepnych rozmiarow
     {% endif %}
-    <a href="{{ url('app_front_default_index') }}">Powrot do listy produktow</a>
+    <a href="{{ url('app_front_default_index') }}">Powrot do listy produktow</a>-->
 
 {% endblock %}

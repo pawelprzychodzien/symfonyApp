@@ -1,7 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <table>
+    <div class="adm-show">
+            <img src="{{ asset('uploads/img/' ~ buty.zdjecie) }}">
+        <div class="shoe-data">
+            <div class="adm-show-cena">{{ buty.cena }} zl</div>
+            <hr>
+            <div class="adm-show-marka">{{ buty.marka }}</div>
+            <div class="adm-show-model">{{ buty.model }}</div>
+            <hr>
+            <div class="adm-show-kolor">Kolor: {{ buty.kolor }}</div>
+            <hr>
+            <div class="adm-show-rozmiar"><p>Dostepne rozmiary:</p><p>{{ buty.rozmiar | join(', ') }}</p></div>
+            <hr>
+            <div class="action">
+                <p><a href="{{ path('app_admin_buty_index') }}">Powrot do listy produktow</a></p>
+                <p><a href="{{ path('app_admin_buty_edit', { 'id': buty.id }) }}">Edycja produktu</a></p>
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Usun produkt">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+    </div>
+    <!--<table>
         <tbody>
             <tr>
                 <td><img src="{{ asset('uploads/img/' ~ buty.zdjecie) }}"></td>
@@ -41,5 +62,5 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>-->
 {% endblock %}
