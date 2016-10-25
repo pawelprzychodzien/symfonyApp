@@ -22,45 +22,5 @@
             </div>
         </div>
     </div>
-    <!--<table>
-        <tbody>
-            <tr>
-                <td><img src="{{ asset('uploads/img/' ~ buty.zdjecie) }}"></td>
-            </tr>
-            <tr>
-                <th>Marka</th>
-                <td>{{ buty.marka }}</td>
-            </tr>
-            <tr>
-                <th>Model</th>
-                <td>{{ buty.model }}</td>
-            </tr>
-            <tr>
-                <th>Kolor</th>
-                <td>{{ buty.kolor }}</td>
-            </tr>
-            <tr>
-                <th>Cena</th>
-                <td>{{ buty.cena }}</td>
-            </tr>
-            <tr>
-                <th>Rozmiary</th>
-                <td>{{ buty.rozmiar | join(', ') }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('app_admin_buty_index') }}">Powrot do listy produktow</a>
-        </li>
-        <li>
-            <a href="{{ path('app_admin_buty_edit', { 'id': buty.id }) }}">Edycja produktu</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>-->
+    <hr>
 {% endblock %}
