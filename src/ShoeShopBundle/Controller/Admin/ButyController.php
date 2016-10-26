@@ -102,10 +102,8 @@ class ButyController extends Controller
      */
     public function editAction(Request $request, Buty $buty)
     {
-        /*$manager = $this->getDoctrine()->getManager();*/
         $deleteForm = $this->createDeleteForm($buty);
         $editForm = $this->createForm('ShoeShopBundle\Form\ButyType', $buty);
-        /*$editForm = $this->createForm(new ButyType($manager), $buty);*/
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

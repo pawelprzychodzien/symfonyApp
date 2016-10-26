@@ -1,7 +1,119 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Edycja produktu</h1>
+    <div class="adm-new">
+        <h2>Edycja produktu</h2>
+
+        {{ form_start(edit_form) }}
+        <div>
+            {{ form_errors(edit_form.marka) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.marka) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.marka) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ form_errors(edit_form.model) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.model) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.model) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ form_errors(edit_form.kolor) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.kolor) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.kolor) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ form_errors(edit_form.cena) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.cena) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.cena) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ form_errors(edit_form.rozmiar) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.rozmiar) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.rozmiar) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ form_errors(edit_form.zdjecieMIN) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.zdjecieMIN) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.zdjecieMIN) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ form_errors(edit_form.zdjecie) }}
+            <div>
+                <div>
+                    {{ form_label(edit_form.zdjecie) }}:
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    {{ form_widget(edit_form.zdjecie) }}
+                </div>
+            </div>
+        </div>
+        <div><input type="submit" value="Zapisz" /></div>
+        {{ form_end(edit_form) }}
+
+        <ul>
+            <li>
+                <a href="{{ path('app_admin_buty_index') }}">Powrot do listy produktow</a>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <!--<h1>Edycja produktu</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -17,5 +129,5 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>-->
 {% endblock %}

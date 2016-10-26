@@ -12,17 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-/*use ShoeShopBundle\Form\DataTransformer\ButyToNumberTransformer; // We include the datatransformer created previously
-use Doctrine\ORM\EntityManager;*/
 
 class ButyType extends AbstractType
 {
-    /*private $entityManager;
 
-    public function __construct(EntityManager $entityManager) // Create the constructor if not exist and add the entity manager as first parameter (we will add it later)
-    {
-        $this->entityManager = $entityManager;
-    }*/
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -35,15 +28,9 @@ class ButyType extends AbstractType
                 'choices' => array('Adidas'=>'Adidas', 'Asics'=>'Asics', 'Nike'=>'Nike', 'Puma'=>'Puma'
                 )
             ))
-            ->add('model', TextareaType::class, array(
-                'data_class' => 'ShoeShopBundle\Entity\Buty',
-            ))
-            ->add('kolor', TextareaType::class, array(
-                'data_class' => 'ShoeShopBundle\Entity\Buty',
-            ))
-            ->add('cena', TextareaType::class, array(
-                'data_class' => 'ShoeShopBundle\Entity\Buty',
-            ))
+            ->add('model', TextareaType::class)
+            ->add('kolor', TextareaType::class)
+            ->add('cena', TextareaType::class)
             ->add('rozmiar', EntityType::class, array(
                     'class' => 'ShoeShopBundle:Rozmiar',
                     'expanded' => true,
@@ -54,17 +41,15 @@ class ButyType extends AbstractType
                     }, 'choice_label' => 'rozmiar',
                 )
             )
-            ->add('zdjecie', FileType::class, array(
-                'data_class'=> 'Symfony\Component\Form\Extension\Core\Type\FileType',
+            ->add('zdjecie', 'file', array(
+                'data_class' => null,
                 'property_path' => 'zdjecie',
-                'label' => 'Zdjecie (img file)'))
-            ->add('zdjecieMIN', FileType::class, array(
-                'data_class'=> 'Symfony\Component\Form\Extension\Core\Type\FileType',
+                'label' => 'Dodaj glowne zdjecie'))
+            ->add('zdjecieMIN', 'file', array(
+                'data_class' => null,
                 'property_path' => 'zdjecieMIN',
-                'label' => 'Zdjecie miniatura (img file)'));
+                'label' => 'Dodaj zdjecie miniature'));
 
-        /*$builder->get('marka')
-            ->addModelTransformer(new ButyToNumberTransformer($this->entityManager)); // finally we apply the transformer*/
     }
 
     /**
