@@ -41,11 +41,11 @@ class ButyType extends AbstractType
                     }, 'choice_label' => 'rozmiar',
                 )
             )
-            ->add('zdjecie', 'file', array(
+            ->add('zdjecie', FileType::class, array(
                 'data_class' => null,
                 'property_path' => 'zdjecie',
                 'label' => 'Dodaj glowne zdjecie'))
-            ->add('zdjecieMIN', 'file', array(
+            ->add('zdjecieMIN', FileType::class, array(
                 'data_class' => null,
                 'property_path' => 'zdjecieMIN',
                 'label' => 'Dodaj zdjecie miniature'));

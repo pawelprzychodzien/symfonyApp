@@ -8,7 +8,13 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
-    sklep.listener:
-        class: ShoeShopBundle\EventListener\ButyModification
+    sklep.img_uploader:
+        class: ShoeShopBundle\FileUploader
+        arguments: ['%img_directory%']
+    sklep.doctrine_img_listener:
+        class: ShoeShopBundle\EventListener\ImgUploadListener
+        arguments: ['@sklep.img_uploader']
         tags:
-            - { name: doctrine.event_listener, event: butyLoad }
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            #- { name: doctrine.event_listener, event: postLoad }#

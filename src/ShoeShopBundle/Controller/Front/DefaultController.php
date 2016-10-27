@@ -44,7 +44,7 @@ class DefaultController extends Controller
             $shoes,
             $request->get('page',1),
             12
-        );
+    );
         return array(
             'pagination' => $pagination,
         );

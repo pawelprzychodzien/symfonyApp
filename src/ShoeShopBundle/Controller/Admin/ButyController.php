@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ShoeShopBundle\Entity\Buty;
 use ShoeShopBundle\Form\ButyType;
 use Doctrine\Common\Persistence\EntityManager;
+use Symfony\Component\HttpFoundation\File\File;
 /**
  * Buty controller.
  *
@@ -47,24 +48,6 @@ class ButyController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $buty->getZdjecie();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('img_directory'),
-                $fileName
-            );
-            $buty->setZdjecie($fileName);
-
-            $ext_pos = strrpos($fileName, '.');
-
-            $file2 = $buty->getZdjecieMIN();
-            $fileName2 = substr($fileName, 0, $ext_pos) . '_min' . substr($fileName, $ext_pos);;
-            $file2->move(
-                $this->getParameter('img_directory'),
-                $fileName2
-            );
-            $buty->setZdjecieMIN($fileName2);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($buty);
             $em->flush();
@@ -102,6 +85,9 @@ class ButyController extends Controller
      */
     public function editAction(Request $request, Buty $buty)
     {
+        $buty->setZdjecie(new File($this->getParameter('img_directory').'/'.$buty->getZdjecie()));
+        $buty->setZdjecieMIN(new File($this->getParameter('img_directory').'/'.$buty->getZdjecieMIN()));
+
         $deleteForm = $this->createDeleteForm($buty);
         $editForm = $this->createForm('ShoeShopBundle\Form\ButyType', $buty);
         $editForm->handleRequest($request);
@@ -111,7 +97,7 @@ class ButyController extends Controller
             $em->persist($buty);
             $em->flush();
 
-            return $this->redirectToRoute('app_admin_buty_edit', array('id' => $buty->getId()));
+            return $this->redirectToRoute('app_admin_buty_show', array('id' => $buty->getId()));
         }
 
         return $this->render('ShoeShopBundle:Admin/Buty:edit.html.twig', array(
