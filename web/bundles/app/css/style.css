@@ -1,0 +1,415 @@
+/*css reset*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, h1, h1, h3, h4, h5, h6,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*koniec css reset*/
+
+body {
+    font-family:Lora,'Times New Roman',serif;
+    font-size:20px;
+    -webkit-tap-highlight-color:#0085A1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: black;
+
+}
+
+.intro-header {
+    text-align: center;
+    background:center center no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    -o-background-size:cover;
+    margin-bottom:20px;
+}
+
+.intro-header .site-heading {
+    padding:100px 0 50px;
+    color:#fff;
+}
+
+.intro-header .site-heading h1 {
+    margin-top:0;
+    font-size:50px;
+    font-weight: 600;
+    color: white;
+}
+
+.intro-header .site-heading .subheading {
+    font-size:24px;
+    display:block;
+    font-weight:600;
+    margin:10px 0 0;
+}
+
+hr.small
+{
+    max-width:150px;
+    margin:15px auto;
+    border:2px solid #fff;
+}
+
+.site-heading div
+{
+    background-color: rgba(204, 204, 204, 0.8);
+    padding-bottom: 10px;
+}
+
+.navbar-custom
+{
+    font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:3;
+}
+
+.navbar-custom .nav li a
+{
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.navbar-custom .navbar-header .navbar-toggle{
+    color:#777;
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:12px;
+}
+
+a:focus {
+    color:black;
+}
+
+a:hover {
+    color:black;
+    text-decoration: underline;
+}
+
+footer {
+    padding:10px 0;
+}
+
+footer .list-inline{
+    margin:0;padding:0;
+}
+
+footer .copyright{
+    font-size:14px;
+    margin-bottom:0;
+    text-align: center;
+}
+
+.pager{
+    margin:20px 0 0;
+}
+
+.pager li>a{
+    font-size:18px;
+    padding:15px 25px;
+    background-color:#fff;
+    border-radius:0;
+    font-weight: 600;
+    border:3px solid black;
+    text-decoration: none;
+}
+
+.pager li>a:focus{
+    color:#fff;
+    background-color:black;
+}
+
+.pager li>a:hover{
+    color:#fff;
+    background-color:black;
+}
+
+@media only screen and (min-width:768px) {
+    .navbar-custom{
+        background:0 0;
+        border-bottom:1px solid transparent;
+    }
+    .navbar-custom .nav li a{
+        color:#fff;
+        padding:20px;
+    }
+    .navbar-custom .nav li a:focus{
+    color:rgba(255,255,255,.8);
+    }
+    .navbar-custom .nav li a:hover{
+        color:rgba(255,255,255,.8);
+        text-decoration: underline;
+    }
+    .intro-header .site-heading{
+        padding:150px 0;
+    }
+    .intro-header .site-heading h1{
+        font-size:80px;
+    }
+
+}
+@media only screen and (min-width:1170px) {
+    .navbar-custom{
+        -webkit-transition:background-color .3s;
+        -moz-transition:background-color .3s;
+        transition:background-color .3s;
+        -webkit-transform:translate3d(0,0,0);
+        -moz-transform:translate3d(0,0,0);
+        -ms-transform:translate3d(0,0,0);
+        -o-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+        -webkit-backface-visibility:hidden;
+        backface-visibility:hidden;
+    }
+
+    .navbar-custom.is-fixed{
+        position:fixed;
+        top:-61px;
+        background-color:rgba(255,255,255,.9);
+        border-bottom:1px solid #f2f2f2;
+        -webkit-transition:-webkit-transform .3s;
+        -moz-transition:-moz-transform .3s;
+        transition:transform .3s;}
+    .navbar-custom.is-fixed .nav li a{
+        color:#333;
+    }
+    .navbar-custom.is-fixed .nav li a:focus{
+        color:#777;
+    }
+    .navbar-custom.is-fixed .nav li a:hover{
+        color:#777;
+    }
+    .navbar-custom.is-visible{
+        -webkit-transform:translate3d(0,100%,0);
+        -moz-transform:translate3d(0,100%,0);
+        -ms-transform:translate3d(0,100%,0);
+        -o-transform:translate3d(0,100%,0);
+        transform:translate3d(0,100%,0)}
+}
+.row  {
+    margin: 0;
+}
+
+.buty-cena {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 2px;
+}
+.obrazek {
+    height: 120px;
+    width: 255px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+}
+
+.col-md-3 {
+     margin: 1px;
+     border: 1px solid #777;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     width: 281px;
+     text-align: center;
+ }
+
+.col-md-3:hover {
+    background-color: rgba(119, 119, 119, 0.1);
+}
+
+.buty-marka {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 2px;
+
+}
+.buty-model {
+    font-size: 22px;
+    margin: 2px;
+}
+
+.next a {
+    color: black;
+}
+.prev a{
+    color: black;
+}
+.buty-kolor{
+    font-size: 20px;
+    margin: 2px;
+}
+.buty-rozmiar{
+    font-size: 20px;
+}
+.produkty {
+    text-align: center;
+}
+.produkty .obrazek{
+    background-position: center;
+    height: 120px;
+    width: inherit;
+}
+.adm-index{
+    text-align: center;
+}
+.empty{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px;
+}
+.add-product a{
+    color: black;
+}
+.add-product a:hover{
+    color: #777;
+}
+.adm-new{
+    text-align: center;
+}
+#buty_zdjecieMIN{
+    margin-left: 550px
+}
+#buty_zdjecie{
+    margin-left: 550px
+}
+.adm-new div{
+    margin: 10px;
+}
+footer p{
+    margin: 10px;
+}
+table, th, td{
+    border-bottom: 2px solid #777;
+    vertical-align: middle;
+}
+table{
+    margin: 30px;
+    width: 95%;
+
+}
+th{
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 7px;
+
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+.akcje li{
+    margin-bottom: 5px;
+}
+.buty-zdj img{
+    margin-top: 3px;
+}
+.akcje li a{
+    color: black;
+}
+.akcje li a:hover{
+    color: #777;
+}
+.adm-show{
+    display: inline;
+}
+.shoe-data{
+    float: right;
+    margin-right: 100px;
+}
+.adm-show-marka {
+    font-size: 28px;
+    color: black;
+    font-weight: 500;
+}
+
+.adm-show-model{
+    font-size: 28px;
+    color: black;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+.adm-show-kolor{
+    font-size: 24px;
+    color: black;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+.adm-show-rozmiar p{
+    margin-bottom: 10px;
+}
+.adm-show-rozmiar{
+    font-size: 24px;
+    color: black;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+.adm-show-cena{
+    font-size: 36px;
+    color: #00b3ee;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+.action p{
+    padding-bottom: 10px;
+}
+.action a{
+    color: black;
+}
+.action a:hover{
+    color: #777;
+}
+.log-form {
+    text-align: center;
+}
